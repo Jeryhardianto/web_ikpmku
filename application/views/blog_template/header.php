@@ -50,8 +50,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <!-- Your custom styles (optional) -->
     <link href="<?= base_url('assets/mdb/'); ?>css/style.css" rel="stylesheet">
 
-    <script src="https://kit.fontawesome.com/36de97794d.js"></script>
-
 </head>
 
 <body>
@@ -70,7 +68,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#"><img src="<?= base_url('assets/'); ?>img/LOGO2.png" width="50px"
                     height="50px" alt="IKPMKU" class="float-left">
-                &np;
+                &nbsp;
                 <span class="font-weight-bold text-white">IKPMKU </span>
                 <br />
                 &nbsp;

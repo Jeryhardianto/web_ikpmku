@@ -11,16 +11,10 @@
                         <ul>
                             <li><a href="https://humas.kaltaraprov.go.id/"><i class="fa fa-angle-double-right"
                                         aria-hidden="true"></i>Humas Kaltara</a></li>
-                            <li>
-                                < a href="http://tarakankota.go.id"><i class="fa fa-angle-double-right"
-                                        aria-hidden="true"></i>Kota Ta
-
-                                    rakan</a>
-                            </li>
-                            <li><a href="http://www.malinau.go.id/"><i class="fa fa
-                          
-             -angle-double-right" aria-hidden="true"></i>Kabupaten Malinau</a></li>
-
+                            <li><a href="http://tarakankota.go.id"><i class="fa fa-angle-double-right"
+                                        aria-hidden="true"></i>Kota Tarakan</a></li>
+                            <li><a href="http://www.malinau.go.id/"><i class="fa fa-angle-double-right"
+                                        aria-hidden="true"></i>Kabupaten Malinau</a></li>
 
                             <li><a href="https://www.nunukankab.go.id/"><i class="fa fa-angle-double-right"
                                         aria-hidden="true"></i>Kabupaten Nunukan</a></li>
@@ -70,9 +64,7 @@
     <div class="copy_right_area">
         <div class="container">
             <div class="float-md-left">
-                <h5>Copyright &copy;<script>
-                    document.write(new Date().getFullYear());
-                    </script> <a href="https://www.instagram.com/jeryhardianto_/?hl=id">Jeryhardianto_ </a></h5>
+                <h5>Copyright &copy;<?= date('Y') ?> IKPMKU DIY</h5>
             </div>
             <div class="float-md-right">
                 <ul class="nav">
@@ -84,17 +76,11 @@
             </div>
         </div>
     </div>
-    oter>
-    ================End Footer Area =================-->
+    </footer>
+    <!--================End Footer Area =================-->
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
-    <script>
-    $(function() {
-        $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
-    });
-    </script>
 
     <script src="<?= base_url('assets/'); ?>js/jquery-3.2.1.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -104,10 +90,6 @@
     <script src="<?= base_url('assets/'); ?>vendors/revolution/js/jquery.themepunch.tools.min.js"></script>
     <script src="<?= base_url('assets/'); ?>vendors/revolution/js/jquery.themepunch.revolution.min.js"></script>
     <script src="<?= base_url('assets/'); ?>vendors/revolution/js/extensions/revolution.extension.actions.min.js">
-    </script>
-    <script src="<?= base_url('assets/'); ?>vendors/revolution/js/extensions/revolution.extension.video.min.js">
-    </script>
-    <script src="<?= base_url('assets/'); ?>vendors/revolution/js/extensions/revolution.extension.slideanims.min.js">
     </script>
     <script
         src="<?= base_url('assets/'); ?>vendors/revolution/js/extensions/revolution.extension.layeranimation.min.js">
@@ -120,19 +102,11 @@
     <script src="<?= base_url('assets/'); ?>vendors/counterup/jquery.waypoints.min.js"></script>
     <script src="<?= base_url('assets/'); ?>vendors/counterup/jquery.counterup.min.js"></script>
     <script src="<?= base_url('assets/'); ?>vendors/counterup/apear.js"></script>
-    <script src="<?= base_url('assets/'); ?>vendors/counterup/coun
-   tto.js"></script>
+    <script src="<?= base_url('assets/'); ?>vendors/counterup/countto.js"></script>
     <script src="<?= base_url('assets/'); ?>vendors/owl-carousel/owl.carousel.min.js"></script>
     <script src="<?= base_url('assets/'); ?>vendors/parallaxer/jquery.parallax-1.1.3.js"></script>
-    <!--Tweets-->
-    <script src="<?= base_url('assets/'); ?>vendors/tweet/tweetie.min.js"></script>
-    <script src="<?= base_url('assets/'); ?>vendors/tweet/script.js"></script>
-
     <script src="<?= base_url('assets/'); ?>js/theme.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-    </script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
 </script> -->
