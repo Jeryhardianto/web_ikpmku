@@ -1,0 +1,69 @@
+services:
+  app:
+    build: .
+    image: ikpmku:latest
+    container_name: ikpmku
+    restart: unless-stopped
+    # Tanpa `ports:`. Trafik masuk lewat Traefik milik host di network `edge`:
+    # *.blataktech.com -> Cloudflare Tunnel -> Traefik -> container ini.
+    networks: [default, edge]
+    environment:
+      CI_ENV: production
+      BASE_URL: ${BASE_URL}
+      DB_HOST: db
+      DB_USER: ${DB_USER}
+      DB_PASS: ${DB_PASS}
+      DB_NAME: ${DB_NAME}
+    volumes:
+      # Volume, bukan isi image: rsync deploy tidak boleh menimpa file yang
+      # diunggah pengguna. Terisi sekali dari image saat volume pertama dibuat.
+      - upload:/var/www/html/upload
+    labels:
+      traefik.enable: "true"
+      # Container ada di dua network — beri tahu Traefik harus lewat yang mana.
+      traefik.docker.network: edge
+      traefik.http.routers.ikpmku.rule: Host(`ikpmku.blataktech.com`)
+      traefik.http.services.ikpmku.loadbalancer.server.port: "80"
+    depends_on:
+      db:
+        condition: service_healthy
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  db:
+    image: mariadb:10.11
+    container_name: ikpmku-db
+    restart: unless-stopped
+    # Sengaja hanya di `default`: basis data tidak punya urusan dengan Traefik.
+    networks: [default]
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+    volumes:
+      # Hanya dijalankan saat volume masih kosong.
+      - ./ikpmku.sql:/docker-entrypoint-initdb.d/ikpmku.sql:ro
+      - db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    logging:
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  db-data:
+  upload:
+
+networks:
+  default:
+    driver: bridge
+  # Dibuat dan dimiliki stack Traefik (/opt/traefik) — jangan pernah oleh berkas ini.
+  edge:
+    external: true
