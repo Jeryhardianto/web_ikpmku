@@ -75,8 +75,8 @@
             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                 <div class="card-body">
                     <div id="mapBox" class="mapBox row m0">
-                        <a href="<?= base_url('assets'); ?>/img/galeri/organisasi.jpg" data-size="1500x1500">
-                            <img alt="picture" src="<?= base_url('upload'); ?>/galeri/organisasi1.jpg"
+                        <a href="<?= base_url('assets'); ?>/img/galeri/organisasi1.jpg" data-size="1500x1500">
+                            <img alt="picture" src="<?= base_url('assets'); ?>/img/galeri/organisasi1.jpg"
                                 class="img-fluid">
                         </a>
                         </figure>
