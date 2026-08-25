@@ -1,0 +1,39 @@
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+
+  app:
+    build: .
+    volumes:
+      - .:/var/www/html
+    environment:
+      CI_ENV: development
+      DB_HOST: db
+      DB_USER: ikpmku
+      DB_PASS: ikpmku
+      DB_NAME: ikpmku
+    depends_on:
+      - db
+
+  db:
+    image: mariadb:10.3
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ikpmku
+      MYSQL_USER: ikpmku
+      MYSQL_PASSWORD: ikpmku
+    volumes:
+      - ./ikpmku.sql:/docker-entrypoint-initdb.d/ikpmku.sql:ro
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
